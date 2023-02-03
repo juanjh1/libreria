@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+{%block bobo%} Editar {% endblock %}
+{%block body%}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4  ">
+        <div class="card">
+            <div class="card-body">
+                <form action="{%url 'editar' %}" method="post" > {% csrf_token %}
+                    <div class="form-group">
+                        <input type="number" name="codigo" id="codigo" class="form-control" placeholder="Codigo" value="{{libro.codigo}}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="libro" id="libro" class="form-control"  placeholder="Libro" value="{{libro.nombre}}" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="autor" id="autor" class="form-control" placeholder="Autor" value="{{libro.seudonimo}}" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white"> Crear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
